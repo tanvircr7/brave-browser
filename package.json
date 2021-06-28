@@ -238,10 +238,10 @@
       },
       "brave-core": {
         "dir": "src/brave",
+        "branch": "mplesa-goma-tests",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        },
-        "branch": "mplesa-goma-tests"
+        }
       }
     }
   },
