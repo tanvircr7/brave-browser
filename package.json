@@ -233,16 +233,8 @@
   },
   "config": {
     "projects": {
-      "chrome": {
-        "dir": "src",
-        "tag": "94.0.4606.41",
-        "repository": {
-          "url": "https://github.com/chromium/chromium"
-        }
-      },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }

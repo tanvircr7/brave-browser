@@ -12,13 +12,19 @@ const util = require('../lib/util')
 Log.progress('Performing initial checkout of brave-core')
 
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
-const braveCoreRef = util.getProjectVersion('brave-core')
+
+let braveCoreRef = ''
+if (process.argv[2])
+  braveCoreRef = process.argv[2]
 
 if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
   fs.mkdirSync(braveCoreDir)
   util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
-  util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+  if (braveCoreRef) {
+    util.runGit(braveCoreDir, ['fetch', 'origin', braveCoreRef])
+    util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+  }
 }
 
 let npmCommand = 'npm'
