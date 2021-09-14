@@ -242,7 +242,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "fix_asan_permissionmanager",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
